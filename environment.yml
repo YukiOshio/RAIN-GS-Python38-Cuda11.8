@@ -1,0 +1,20 @@
+name: rain
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - plyfile=0.8.1
+  - python=3.8.10
+  - pip=22.3.1
+  - pytorch=2.0.0
+  - torchaudio=2.0.0
+  - torchvision=0.15.0
+  - cudatoolkit=11.8
+  - tqdm
+  - ninja
+  - wandb
+  - pip:
+  # - submodules/diff_gaussian_rasterization
+    - submodules/simple-knn
