@@ -10,7 +10,7 @@ There are several changes in onriginal installation since the installation was n
 
 ## Installation
 For environmental setup, please follow the original requirements of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting). 
-I installed following tools and set environment variables.
+I installed following tools and set environment variable.
 
 - Cuda 11.8 [from here](https://developer.nvidia.com/cuda-toolkit-archive)
 - Visual Studio 2019 [from here](https://visualstudio.microsoft.com/ja/vs/older-downloads/)
@@ -20,6 +20,7 @@ I installed following tools and set environment variables.
 - COLMAP [from here](https://colmap.github.io/)
 - ImageMagick [from here](https://imagemagick.org/index.php)
     - I took "ImageMagick-7.1.1-15-Q16-HDRI-x64-dll.exe"
+- viewer (This project has viewer. You can install viewer by setting environment variable for viewers/bin.)
 
 ## Training
 
