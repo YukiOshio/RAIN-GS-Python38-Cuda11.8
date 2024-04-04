@@ -1,51 +1,42 @@
-# RAIN-GS: Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting
+# RAIN-GS with Python3.8, Cuda11.8
+
+## About RAIN-GS
 <a href="https://arxiv.org/abs/2403.09413"><img src="https://img.shields.io/badge/arXiv-2403.09413-%23B31B1B"></a>
 <a href="https://ku-cvlab.github.io/RAIN-GS/ "><img src="https://img.shields.io/badge/Project%20Page-online-brightgreen"></a>
-<br>
 
-This is our official implementation of the paper "Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting"!
-
-by [Jaewoo Jung](https://crepejung00.github.io)<sup>:umbrella:</sup>, [Jisang Han](https://github.com/ONground-Korea)<sup>:umbrella:</sup>, [Honggyu An](https://hg010303.github.io/)<sup>:umbrella:</sup>, [Jiwon Kang](https://github.com/loggerJK)<sup>:umbrella:</sup>, [Seonghoon Park](https://github.com/seong0905)<sup>:umbrella:</sup>, [Seungryong Kim](https://cvlab.korea.ac.kr)<sup>&dagger;</sup>
-
-:umbrella:: Equal Contribution <br>
-&dagger;: Corresponding Author
 ## Introduction
-![](assets/teaser.png)<br>
-We introduce a novel optimization strategy (**RAIN-GS**) for 3D Gaussian Splatting!
-
-We show that our simple yet effective strategy consisted of **sparse-large-variance (SLV) random initialization** and **progressive Gaussian low-pass filter control** robustly guides 3D Gaussians to model the scene even when starting from random point clouds.
-
-For further details and visualization results, please check out our [paper](https://arxiv.org/abs/2403.09413) and our [project page](https://ku-cvlab.github.io/RAIN-GS/).
+This project provides RAIN-GS with python3.8, cuda11.8. 
+There are several changes in onriginal installation since the installation was not successful on my environment :<
 
 ## Installation
-We implement **RAIN-GS** above the official implementation of 3D Gaussian Splatting. <br> For environmental setup, we kindly guide you to follow the original requirements of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting). 
+For environmental setup, please follow the original requirements of [3DGS](https://github.com/graphdeco-inria/gaussian-splatting). 
+I installed following tools and set environment variables.
+
+- Cuda 11.8 [from here](https://developer.nvidia.com/cuda-toolkit-archive)
+- Visual Studio 2019 [from here](https://visualstudio.microsoft.com/ja/vs/older-downloads/)
+  - You can use the "where cl" command in the "Developer Command Prompt for VS2019" to get the path of cl.exe. 
+- Anaconda3 [from here](https://www.anaconda.com)
+- ffmpeg [from here](https://ffmpeg.org/)
+- COLMAP [from here](https://colmap.github.io/)
+- ImageMagick [from here](https://imagemagick.org/index.php)
+    - I took "ImageMagick-7.1.1-15-Q16-HDRI-x64-dll.exe"
 
 ## Training
 
-To train 3D Gaussian Splatting with our novel strategy (**RAIN-GS**), all you need to do is:
+To train 3D Gaussian Splatting with RAIN-GS, you can set --ours option:
 
 ```bash
-python train.py -s {dataset_path} --exp_name {exp_name} --eval --ours
+python train.py --source_path {dataset_path} --exp_name {exp_name} --eval --ours
 ```
 
-For dense-small-variance (DSV) random initialization (used in the original 3D Gaussian Splatting), you can simply run with the following command:
+For dense-small-variance (DSV) random initialization (used in the original 3D Gaussian Splatting), you can set --DSV option:
 ```bash
-python train.py -s {dataset_path} --exp_name {exp_name} --eval --DSV
+python train.py --source_path {dataset_path} --exp_name {exp_name} --eval --DSV
 ```
 
-To train with Mip-NeRF360 dataset, you can add argument `--images images_4` for outdoor scenes and `--images images_2` for indoor scenes to modify the resolution of the input images.
+If exp_name is spacified, the output will be as follows: output/{exp_name} .
+
 
 ## Acknowledgement
 
-We would like to acknowledge the contributions of [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) for open-sourcing the official codes for 3DGS! 
-
-## Citation
-If you find our work helpful, please cite our work as:
-```
-@article{jung2024relaxing,
-  title={Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting},
-  author={Jung, Jaewoo and Han, Jisang and An, Honggyu and Kang, Jiwon and Park, Seonghoon and Kim, Seungryong},
-  journal={arXiv preprint arXiv:2403.09413},
-  year={2024}
-}
-```
+I would like to acknowledge the contributions of [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) and [RAIN-GS](https://github.com/KU-CVLAB/RAIN-GS) for open-sourcing the official codes for 3DGS! 
